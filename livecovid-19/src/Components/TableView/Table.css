@@ -1,0 +1,29 @@
+
+@import '~antd/dist/antd.css';
+
+h5{
+    margin-left: 88px;
+    color: #ffffff;
+    margin-top: 12px;
+    width: 20%;
+}
+.ant-table-wrapper{
+    width: 30%;
+    height: 100px;
+    margin-right: 10px;
+}
+body{
+    background-color: #30363b;
+}
+.ant-table-pagination-right{
+   justify-content: center;
+}
+.ant-table-tbody  tr  td   {
+   padding: 2px;
+   width:200px;
+}
+.ant-table-thead tr th {
+    padding: 4px;
+    
+}
+
