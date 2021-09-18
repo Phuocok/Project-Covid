@@ -34,11 +34,11 @@ for (let i = 0; i < 100; i++) {
     deaths: `85684${i}`,
     recovered: `7348526.`,
   });
-}
+}   
 class index extends Component {
   render() {
     return (
-      <div className="table-container">
+      <div>
         <h5>Tổng số ca nhiễm của các nước</h5>
 
         <Table

@@ -8,5 +8,48 @@
 body {
   font-family: 'Pacifico', cursive;
   background-color: #333333;
+ 
+}
+/* .select-country{
+  display:flex;
   
+} */
+
+.select-country .select-item {
+  margin-top:16px;
+  margin-left: 138px;
+ 
+}
+.box-wrapper{
+  background-color: #1f2022;
+  padding: 16px 8px;
+  width: 25%;
+  border-radius: 1px;
+  text-align: center;
+  margin:8px;
+}
+.box-wrapper .col .red{
+  background-color: #BD2130;
+  border-radius: 16px;
+  padding: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0;
+}
+
+.box-wrapper .col .green{
+  background-color: #A4C939;
+  border-radius: 16px;
+  padding: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0;
+}
+.box-wrapper .col .gray{
+  background-color: #414141;
+  border-radius: 16px;
+  padding: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0;
 }
