@@ -8,9 +8,9 @@ h5{
     width: 20%;
 }
 .ant-table-wrapper{
-   
-    height: 100px;
-    margin-right: 10px;
+   height: 500px;
+   width:30%;
+    margin: 0 8px;
 }
 body{
     background-color: #30363b;
@@ -25,5 +25,11 @@ body{
 .ant-table-thead tr th {
     padding: 4px;
     
+}
+.container-table{
+    margin-top: 16px;
+}
+.ant-table-tbody{
+    height: 400px;
 }
 

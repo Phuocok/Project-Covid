@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../../Layouts/Header";
 import TableView from "../../Components/TableView";
 import { Select } from "antd";
+import { Box } from "../../Components/Box";
+import SelecCountry from "../../Components/SelecCountry";
 
 import API from "../../Services/API";
 
 const { Option } = Select;
-function handleChange(value) {
-  console.log(value);
-}
+
 const HomePage = () => {
   const [countrySelectedId, setCountrySelectedId] = useState("vietnam");
   const [countries, setCountries] = useState([]);
-  const [conuntryData, setCountryData] = useState([]);
+  const [conuntryData, setCountryData] = useState([]); //linechart
   const [sumaryData, setSumaryData] = useState([]);
-  const [mapData, setMapData] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [mapData, setMapData] = useState({}); //map
+  // const [isLoading, setIsLoading] = useState(false);   //loading
 
   useEffect(() => {
     const getAllCountries = async () => {
@@ -62,6 +62,7 @@ const HomePage = () => {
   const summaryData = (data) => {
     if (data && data.length) {
       const latestData = data[data.length - 1];
+
       return [
         {
           title: "Total cases",
@@ -83,50 +84,25 @@ const HomePage = () => {
     return [];
   };
   console.log(summaryData);
+
   return (
     <div>
       <NavBar />
-      <div className="select-country">
-        {/* <TableView /> */}
-
-        <div className="select-item">
-          <Select
-            placeholder="Select a countries"
-            labelInValue
-            optionFilterProp="children"
-            defaultValue={{ value: "Viet Nam" }}
-            style={{ width: 120 }}
-            onChange={(value) => handleSelectedCountry(value)}
-            filterOption={(input, option) =>
-              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-            }
-          >
-            {countries &&
-              countries.map((country) => {
-                const { Slug, Country } = country;
-                return (
-                  <Option value={Slug} key={Slug}>
-                    {Country}
-                  </Option>
-                );
-              })}
-          </Select>
-        </div>
+      <div className="select-item">
+        <SelecCountry
+          countries={countries}
+          handleSelectedCountry={handleSelectedCountry}
+        />
       </div>
       <div className="box-wrapper">
         {sumaryData &&
           sumaryData.map((sumaryInfo) => {
-            const { count } = sumaryInfo;
-            return (
-              <div className="row">
-                <div className="col">
-                  <p className="red">{count}</p>
-                </div>
-                
-              </div>
-            );
+            const { type, count, title } = sumaryInfo;
+            return <Box count={count} title={title} type={type} />;
           })}
       </div>
+
+      <TableView />
     </div>
   );
 };

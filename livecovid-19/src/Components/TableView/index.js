@@ -38,14 +38,14 @@ for (let i = 0; i < 100; i++) {
 class index extends Component {
   render() {
     return (
-      <div>
+      <div className="container-table">
         <h5>Tổng số ca nhiễm của các nước</h5>
 
         <Table
           columns={columns}
           dataSource={data}
           pagination={{ pageSize: 50 }}
-          scroll={{ y: 240 }}
+          scroll={{ y: 320 }}
         />
       </div>
     );
