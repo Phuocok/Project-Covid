@@ -1,0 +1,11 @@
+.table{
+    height: 100px;
+}
+.link {
+    display: flex;
+    color: #fff;
+}
+.link .link-item {
+    margin: 0 8px;
+    
+}

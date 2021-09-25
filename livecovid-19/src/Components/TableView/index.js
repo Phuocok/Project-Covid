@@ -26,21 +26,21 @@ const columns = [
 ];
 
 const data = [];
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i <100; i++) {
   data.push({
     key: i,
-    country: `Country ${i}`,
-    confirmed: `4668454`,
-    deaths: `85684${i}`,
-    recovered: `7348526.`,
+    country: `Country`,
+    confirmed: `468454`,
+    deaths: `8584${i}`,
+    recovered: `734826.`,
   });
-}   
+}
+
 class index extends Component {
   render() {
     return (
       <div className="container-table">
         <h5>Tổng số ca nhiễm của các nước</h5>
-
         <Table
           columns={columns}
           dataSource={data}
@@ -51,5 +51,30 @@ class index extends Component {
     );
   }
 }
-
 export default index;
+
+// class index extends Component {
+
+//   render() {
+//     return (
+//       <div className="container-table">
+//         <h5>Tổng số ca nhiễm của các nước</h5>
+//         {/* {countries &&
+//           countries.map((countrys) => {
+//             const { Slug, Country } = countrys;
+//             return ( */}
+//               <Table
+//                 // key={Slug}
+//                 // value={Slug}
+//                 columns={columns}
+//                 dataSource= {data}  //{Country}
+//                 pagination={{ pageSize: 50 }}
+//                 scroll={{ y: 320 }}
+//               />
+
+//           {/* })} */}
+//       </div>
+//        );
+//   }
+// }
+// export default index;

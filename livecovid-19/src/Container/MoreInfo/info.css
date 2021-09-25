@@ -1,0 +1,26 @@
+body {
+  font-family: "Pacifico", cursive;
+  color: #fff;
+}
+
+.title img {
+  height: 200px;
+  width: 300px;
+}
+.title {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 32px;
+  box-shadow: 0px 0px 4px;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #3f3d3d;
+  cursor: pointer;
+}
+.title p {
+  margin-top: 16px;
+  font-size: 12px;
+}
+.title h5 {
+  width: 80%;
+}

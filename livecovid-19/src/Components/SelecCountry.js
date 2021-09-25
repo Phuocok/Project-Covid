@@ -14,7 +14,7 @@ const FieldSelectCountry = (props) => {
         optionFilterProp="children"
         onChange={(value) => handleSelectedCountry(value)}
         filterOption={(input, option) =>
-          option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+          option.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
         defaultValue="vietnam"
         disabled={isLoading}

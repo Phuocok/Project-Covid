@@ -3,7 +3,9 @@
   margin: 0;
   box-sizing:  border-box;
 }
-
+.container-box{
+  overflow:auto;  
+}
 
 body {
   font-family: 'Pacifico', cursive;
@@ -30,4 +32,17 @@ body {
   display: flex;
   color: #ffffff;
   font-weight: bold;
+}
+.linechart-item {
+  width: 100%;
+  margin-left: 500px;
+  position: absolute;
+  margin-top:8px; 
+ 
+  
+}
+.map-item {
+  position: absolute;
+  margin-left: 1100px;
+  margin-top:8px; 
 }

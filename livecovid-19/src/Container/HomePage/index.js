@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../../Layouts/Header";
+
+
 import TableView from "../../Components/TableView";
-import { Select } from "antd";
 import { Box } from "../../Components/Box";
 import SelecCountry from "../../Components/SelecCountry";
-
 import API from "../../Services/API";
-
-const { Option } = Select;
+import LineChart from "../../Components/LineChart";
+import Map from "../../Components/Map";
 
 const HomePage = () => {
   const [countrySelectedId, setCountrySelectedId] = useState("vietnam");
@@ -15,19 +14,24 @@ const HomePage = () => {
   const [conuntryData, setCountryData] = useState([]); //linechart
   const [sumaryData, setSumaryData] = useState([]);
   const [mapData, setMapData] = useState({}); //map
-  // const [isLoading, setIsLoading] = useState(false);   //loading
+
 
   useEffect(() => {
     const getAllCountries = async () => {
       const countriesData = await API.fetchAllCoutries();
+     
       setCountries(countriesData.data);
       console.log(countriesData);
     };
+    
     getAllCountries();
   }, []);
   useEffect(() => {
+    
     const getMapData = async () => {
+       
       if (countrySelectedId && countries.length !== 0) {
+        
         const selectedCountry = countries.find(
           (country) => country.Slug === countrySelectedId
         );
@@ -37,12 +41,14 @@ const HomePage = () => {
         );
         setMapData(mapDataJSON);
       }
+      
       return {};
     };
+    
     const getCountryData = async () => {
       try {
         const response = await API.fetchCountryData(countrySelectedId);
-
+       
         setCountryData(response.data);
         setSumaryData(summaryData(response.data));
         getMapData();
@@ -57,8 +63,7 @@ const HomePage = () => {
   const handleSelectedCountry = (countryId) => {
     setCountrySelectedId(countryId);
   };
-  console.log(setCountrySelectedId);
-
+ 
   const summaryData = (data) => {
     if (data && data.length) {
       const latestData = data[data.length - 1];
@@ -83,17 +88,23 @@ const HomePage = () => {
     }
     return [];
   };
-  console.log(summaryData);
 
   return (
-    <div>
-      <NavBar />
+    <div className="container-box">
+      
       <div className="select-item">
         <SelecCountry
           countries={countries}
           handleSelectedCountry={handleSelectedCountry}
         />
       </div>
+      <div className="linechart-item">
+      <LineChart data={conuntryData} />
+      </div>
+      <div className="map-item">
+      <Map mapData={mapData} />
+      </div>
+      
       <div className="box-wrapper">
         {sumaryData &&
           sumaryData.map((sumaryInfo) => {
@@ -101,8 +112,9 @@ const HomePage = () => {
             return <Box count={count} title={title} type={type} />;
           })}
       </div>
-
-      <TableView />
+       
+      <TableView countries={countries} />
+      
     </div>
   );
 };
